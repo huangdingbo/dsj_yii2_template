@@ -1,0 +1,23 @@
+{
+  "name": "huangdingbo/dsj_yii2_template",
+  "description": "大数据yii2新项目模板",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.6.0"
+  },
+  "authors": [
+    {
+      "name": "huangdingbo",
+      "email": "378969398@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "api\\": "api",
+      "backend\\": "backend",
+      "console\\": "console",
+      "common\\": "common"
+    }
+  }
+}

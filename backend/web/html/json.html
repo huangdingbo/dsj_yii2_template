@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #tree_editor {
+            width: 500px;
+            height: 500px;
+        }
+        #json_editor {
+            width: 500px;
+            height: 500px;
+        }
+        #center {
+            width: 62px;
+            /*margin-left: 100px;*/
+        }
+        #right{
+
+        }
+        #left{
+            transform: rotate(180deg);
+        }
+        #main{
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="../jsoneditor/dist/jsoneditor.css">
+    <script data-main="scripts/main" src="../jsoneditor/dist/jsoneditor.js"></script>
+    <script data-main="scripts/main" src="../jsoneditor/dist/jquery-2.2.3.min.js"></script>
+</head>
+<body>
+<div id="main">
+    <div id="tree_editor"></div>
+    <div id="json_editor"></div>
+</div>
+
+<script>
+    console.log(this.test)
+    const  editor1 = new JSONEditor(document.getElementById('tree_editor'), {
+        onChangeText: function (jsonString) {
+            editor2.updateText(jsonString)
+        }
+    })
+
+    // create editor 2
+    const  editor2 = new JSONEditor(document.getElementById('json_editor'), {
+        onChangeText: function (jsonString) {
+            editor1.updateText(jsonString)
+        }
+    })
+
+    const  json = {
+        'array': [1, 2, 3],
+        'boolean': true,
+        'null': null,
+        'number': 123,
+        'object': {'a': 'b', 'c': 'd'},
+        'string': 'Hello World'
+    }
+    editor1.set(json)
+    editor2.set(json)
+</script>
+</body>
+</html>
